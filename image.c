@@ -70,13 +70,14 @@ void *convoluteThread(void *args) {
     ThreadData *data = (ThreadData *)args;
     Image *srcImage = data->srcImage;
     Image *destImage = data->destImage;
-    Matrix algorithm = data->algorithm;
+    Matrix algorithm;
+    memcpy(algorithm, data->algorithm, sizeof(Matrix));
     int startRow = data->startRow;
     int endRow = data->endRow;
     
-    int pix, bit, span;
+    int pix, bit, span, row;
     span = srcImage->bpp * srcImage->bpp;
-    for (int row = startRow; row < endRow; row++) {
+    for (row = startRow; row < endRow; row++) {
         for (pix = 0; pix < srcImage->width; pix++) {
             for (bit = 0; bit < srcImage->bpp; bit++) {
                 destImage->data[Index(pix, row, srcImage->width, bit, srcImage->bpp)] = getPixelValue(srcImage, pix, row, bit, algorithm);
@@ -93,8 +94,9 @@ void convolute(Image *srcImage, Image *destImage, Matrix algorithm) {
     ThreadData threadData[numThreads];
     
     int rowsPerThread = srcImage->height / numThreads;
+    int i;
     
-    for (int i = 0; i < numThreads; i++) {
+    for (i = 0; i < numThreads; i++) {
         threadData[i].srcImage = srcImage;
         threadData[i].destImage = destImage;
         memcpy(threadData[i].algorithm, algorithm, sizeof(Matrix));
@@ -104,10 +106,11 @@ void convolute(Image *srcImage, Image *destImage, Matrix algorithm) {
         pthread_create(&threads[i], NULL, convoluteThread, &threadData[i]);
     }
     
-    for (int i = 0; i < numThreads; i++) {
+    for (i = 0; i < numThreads; i++) {
         pthread_join(threads[i], NULL);
     }
 }
+
 
 
 //Usage: Prints usage information for the program
