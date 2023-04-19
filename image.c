@@ -103,11 +103,11 @@ void convolute(Image *srcImage, Image *destImage, Matrix algorithm) {
         threadData[i].startRow = i * rowsPerThread;
         threadData[i].endRow = (i == numThreads - 1) ? srcImage->height : (i + 1) * rowsPerThread;
         
-        pthread_create(&threads[i], NULL, convoluteThread, &threadData[i]);
+        lpthread_create(&threads[i], NULL, convoluteThread, &threadData[i]);
     }
     
     for (i = 0; i < numThreads; i++) {
-        pthread_join(threads[i], NULL);
+        lpthread_join(threads[i], NULL);
     }
 }
 
