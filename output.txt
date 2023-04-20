@@ -1,0 +1,21 @@
+Script started on Wed Apr 19 20:31:04 2023
+]0;jnbai@r1n00.darwin:~/CISC372_picProject[?1034h[jnbai@r1n00 CISC372_picProject]$ salloc --ntasks=1 --cpus-per-task=4 --partition=standard[jnbai@r1n00 CISC372_picProject]$ ls[Ksalloc --ntasks=1 --cpus-per-task=4 --partition=standard[jnbai@r1n00 CISC372_picProject]$ [Ksrun /home  /3032/CISC372_picProject/image_openmp pic1.jpg edge
+Took 6 seconds
+]0;jnbai@r1n00.darwin:~/CISC372_picProject[jnbai@r1n00 CISC372_picProject]$ srun /home/3032/CISC372_picProject/image_openmp pic1.jpg edge[1P[1@2
+Took 5 seconds
+]0;jnbai@r1n00.darwin:~/CISC372_picProject[jnbai@r1n00 CISC372_picProject]$ srun /home/3032/CISC372_picProject/image_openmp pic2.jpg edge[1P[1@3
+Took 6 seconds
+]0;jnbai@r1n00.darwin:~/CISC372_picProject[jnbai@r1n00 CISC372_picProject]$ srun /home/3032/CISC372_picProject/image_openmp pic3.jpg edge[1P[1@4
+Took 6 seconds
+]0;jnbai@r1n00.darwin:~/CISC372_picProject[jnbai@r1n00 CISC372_picProject]$ srun /home/3032/CISC372_picProject/image_openmp pic4.jpg edgep[1P[1P[1P[1P[1P[1P[1@P[1@t[1@h[1@r[1@e[1@a[1@d pic4[1P[1@1
+Took 6 seconds
+]0;jnbai@r1n00.darwin:~/CISC372_picProject[jnbai@r1n00 CISC372_picProject]$ srun /home/3032/CISC372_picProject/image_Pthread pic1.jpg edge[1P[1@2
+Took 6 seconds
+]0;jnbai@r1n00.darwin:~/CISC372_picProject[jnbai@r1n00 CISC372_picProject]$ srun /home/3032/CISC372_picProject/image_Pthread pic2.jpg edge[1P[1@3
+Took 7 seconds
+]0;jnbai@r1n00.darwin:~/CISC372_picProject[jnbai@r1n00 CISC372_picProject]$ srun /home/3032/CISC372_picProject/image_Pthread pic3.jpg edge[1P[1@4
+Took 6 seconds
+]0;jnbai@r1n00.darwin:~/CISC372_picProject[jnbai@r1n00 CISC372_picProject]$ exit
+exit
+
+Script done on Wed Apr 19 20:32:58 2023

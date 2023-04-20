@@ -1,0 +1,2 @@
+slurmstepd: error: execve(): my_custom_job: No such file or directory
+srun: error: r1n00: task 0: Exited with exit code 2
